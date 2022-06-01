@@ -12,4 +12,5 @@ enum Asset {
     static let woman = "image15"
     
     static let menu = "More_Vertical"
+    static let seat = "Seat"
 }

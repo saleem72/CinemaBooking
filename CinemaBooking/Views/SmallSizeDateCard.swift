@@ -1,32 +1,32 @@
 //
-//  FullSizeDateCard.swift
+//  SmallSizeDateCard.swift
 //  CinemaBooking
 //
-//  Created by Yousef on 5/31/22.
+//  Created by Yousef on 6/1/22.
 //
 
 import SwiftUI
 
-struct FullSizeDateCard: View {
-    var date: Date
-    @Binding var selectedDay: Date?
+struct SmallSizeDateCard: View {
+    let time: ShowTime
+    @Binding var selectedTime: ShowTime
     
     @State private var isFull: Bool = true
     @State private var expand: CGFloat = 0
     @State private var offset: CGFloat = 0
     
     var body: some View {
-        dateSectionBackground
-            .overlay(dateLabel)
-            .foregroundColor(.white)
-            .frame(width: 50 + expand, height: 80 + expand)
+        timeSectionBackground
+            .overlay(timeLabel)
             .background(dragingControl)
+            
+            .frame(height: 40)
+            .frame(width: 50 + expand)
             .offset(y: -offset)
     }
 }
 
-extension FullSizeDateCard {
-    
+extension SmallSizeDateCard {
     
     private var dragingControl: some View {
         GeometryReader { goe -> Color in
@@ -44,7 +44,7 @@ extension FullSizeDateCard {
 //                    }
                     expand = 20 -  max(0, min(temp * 20 , 20))
                     isFull = true
-                    selectedDay = date
+                    selectedTime = time
                 } else {
                     expand = 0
                     isFull = false
@@ -53,52 +53,28 @@ extension FullSizeDateCard {
                 // Conntrol Cell offfset
                 let offsetArea: CGFloat = (35 + 20 + 50 + 20 + 50)
                 if rect.maxX < (screeenCenter  + offsetArea) && rect.minX > (screeenCenter - offsetArea) {
-                    let temp = (screeenCenter - rect.midX) / offsetArea
-                    offset =  -max(0, min(abs(temp) * 60 , 60))
+                    let temp =  1 - abs((screeenCenter - rect.midX) / offsetArea)
+                    offset =  max(0, min(abs(temp) * 35 , 35))
                 }
             }
             return Color.clear
         }
     }
     
-    private var dateSectionBackground: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(isFull ? Gradients.fullSizeCardBackground : Gradients.smallSizeCardBackground)
-            
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .strokeBorder(isFull ? Gradients.fullSizeCardStroke : Gradients.smallSizeCardStroke, lineWidth: 2)
-        }
-        .frame(maxHeight: .infinity)
-    }
-    
-    private var dateLabel: some View {
-        VStack {
-            Text(date.weekday)
-                .customFont()
-            
-            Text("\(date.day)")
-                .fontWeight(.bold)
-                .customFont()
-                
-        }
-    }
-    
     private var timeSectionBackground: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Gradients.smallSizeCardBackground)
+                .fill(isFull ? Gradients.fullSizeCardBackground : Gradients.smallSizeCardBackground)
             
             RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(Gradients.smallSizeCardStroke, lineWidth: 2)
+                .strokeBorder(isFull ? Gradients.fullSizeCardStroke : Gradients.smallSizeCardStroke, lineWidth: 2)
         }
-        .frame(height: 40)
     }
     
     private var timeLabel: some View {
-        Text(date.shortTime)
+        Text(time.label)
             .customFont()
             .minimumScaleFactor(0.6)
+            .foregroundColor(.white)
     }
 }
-

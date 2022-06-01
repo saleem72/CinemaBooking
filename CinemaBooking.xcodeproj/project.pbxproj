@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA44B402284795B5005F662E /* ChooseSeatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B401284795B5005F662E /* ChooseSeatScreen.swift */; };
 		CA89001C2844F12B00EA916D /* CinemaBookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */; };
 		CA89001E2844F12B00EA916D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89001D2844F12B00EA916D /* ContentView.swift */; };
 		CA8900202844F12D00EA916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA89001F2844F12D00EA916D /* Assets.xcassets */; };
@@ -24,9 +25,12 @@
 		CA8900512845F28700EA916D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900502845F28700EA916D /* Date+Extension.swift */; };
 		CA8900542845F2C700EA916D /* FullSizeDateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900532845F2C700EA916D /* FullSizeDateCard.swift */; };
 		CA89005828461C0E00EA916D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89005728461C0E00EA916D /* Gradients.swift */; };
+		CA89005C28476C3200EA916D /* SmallSizeDateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89005B28476C3200EA916D /* SmallSizeDateCard.swift */; };
+		CA89005F284775AE00EA916D /* ShowTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89005E284775AE00EA916D /* ShowTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA44B401284795B5005F662E /* ChooseSeatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSeatScreen.swift; sourceTree = "<group>"; };
 		CA8900182844F12B00EA916D /* CinemaBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaBookingApp.swift; sourceTree = "<group>"; };
 		CA89001D2844F12B00EA916D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		CA8900502845F28700EA916D /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CA8900532845F2C700EA916D /* FullSizeDateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeDateCard.swift; sourceTree = "<group>"; };
 		CA89005728461C0E00EA916D /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		CA89005B28476C3200EA916D /* SmallSizeDateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSizeDateCard.swift; sourceTree = "<group>"; };
+		CA89005E284775AE00EA916D /* ShowTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA44B400284795A0005F662E /* ChooseSeatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CA44B401284795B5005F662E /* ChooseSeatScreen.swift */,
+			);
+			path = ChooseSeatScreen;
+			sourceTree = "<group>";
+		};
 		CA89000F2844F12B00EA916D = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +114,7 @@
 		CA89002C2844F15000EA916D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CA44B400284795A0005F662E /* ChooseSeatScreen */,
 				CA8900322844F47D00EA916D /* ReservationScreen */,
 			);
 			path = Screens;
@@ -111,6 +126,7 @@
 				CA8900412844FA0A00EA916D /* HeaderButtonModifire.swift */,
 				CA89004D2845EB9C00EA916D /* HorizontalDatePicker.swift */,
 				CA8900532845F2C700EA916D /* FullSizeDateCard.swift */,
+				CA89005B28476C3200EA916D /* SmallSizeDateCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +134,7 @@
 		CA89002E2844F15C00EA916D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA89005E284775AE00EA916D /* ShowTime.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,11 +260,14 @@
 				CA89001E2844F12B00EA916D /* ContentView.swift in Sources */,
 				CA8900512845F28700EA916D /* Date+Extension.swift in Sources */,
 				CA8900382844F71600EA916D /* Asset.swift in Sources */,
+				CA44B402284795B5005F662E /* ChooseSeatScreen.swift in Sources */,
 				CA89003F2844F8DC00EA916D /* View+Extension.swift in Sources */,
 				CA8900542845F2C700EA916D /* FullSizeDateCard.swift in Sources */,
 				CA89001C2844F12B00EA916D /* CinemaBookingApp.swift in Sources */,
 				CA89004E2845EB9C00EA916D /* HorizontalDatePicker.swift in Sources */,
 				CA89005828461C0E00EA916D /* Gradients.swift in Sources */,
+				CA89005C28476C3200EA916D /* SmallSizeDateCard.swift in Sources */,
+				CA89005F284775AE00EA916D /* ShowTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
