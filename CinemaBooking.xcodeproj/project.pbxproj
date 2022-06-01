@@ -11,6 +11,19 @@
 		CA89001E2844F12B00EA916D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89001D2844F12B00EA916D /* ContentView.swift */; };
 		CA8900202844F12D00EA916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA89001F2844F12D00EA916D /* Assets.xcassets */; };
 		CA8900232844F12D00EA916D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8900222844F12D00EA916D /* Preview Assets.xcassets */; };
+		CA8900342844F48C00EA916D /* ReservationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900332844F48C00EA916D /* ReservationScreen.swift */; };
+		CA8900382844F71600EA916D /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900372844F71600EA916D /* Asset.swift */; };
+		CA89003D2844F8DC00EA916D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89003A2844F8DB00EA916D /* Color+Extension.swift */; };
+		CA89003E2844F8DC00EA916D /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89003B2844F8DC00EA916D /* Font+Extension.swift */; };
+		CA89003F2844F8DC00EA916D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89003C2844F8DC00EA916D /* View+Extension.swift */; };
+		CA8900422844FA0A00EA916D /* HeaderButtonModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900412844FA0A00EA916D /* HeaderButtonModifire.swift */; };
+		CA8900492844FCA700EA916D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA8900462844FCA700EA916D /* Poppins-SemiBold.ttf */; };
+		CA89004A2844FCA700EA916D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA8900472844FCA700EA916D /* Poppins-Regular.ttf */; };
+		CA89004B2844FCA700EA916D /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA8900482844FCA700EA916D /* Poppins-Bold.ttf */; };
+		CA89004E2845EB9C00EA916D /* HorizontalDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89004D2845EB9C00EA916D /* HorizontalDatePicker.swift */; };
+		CA8900512845F28700EA916D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900502845F28700EA916D /* Date+Extension.swift */; };
+		CA8900542845F2C700EA916D /* FullSizeDateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8900532845F2C700EA916D /* FullSizeDateCard.swift */; };
+		CA89005828461C0E00EA916D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89005728461C0E00EA916D /* Gradients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +33,19 @@
 		CA89001F2844F12D00EA916D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA8900222844F12D00EA916D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA8900242844F12D00EA916D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA8900332844F48C00EA916D /* ReservationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationScreen.swift; sourceTree = "<group>"; };
+		CA8900372844F71600EA916D /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		CA89003A2844F8DB00EA916D /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		CA89003B2844F8DC00EA916D /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		CA89003C2844F8DC00EA916D /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		CA8900412844FA0A00EA916D /* HeaderButtonModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButtonModifire.swift; sourceTree = "<group>"; };
+		CA8900462844FCA700EA916D /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		CA8900472844FCA700EA916D /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		CA8900482844FCA700EA916D /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		CA89004D2845EB9C00EA916D /* HorizontalDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalDatePicker.swift; sourceTree = "<group>"; };
+		CA8900502845F28700EA916D /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CA8900532845F2C700EA916D /* FullSizeDateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeDateCard.swift; sourceTree = "<group>"; };
+		CA89005728461C0E00EA916D /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +78,11 @@
 		CA89001A2844F12B00EA916D /* CinemaBooking */ = {
 			isa = PBXGroup;
 			children = (
-				CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */,
-				CA89001D2844F12B00EA916D /* ContentView.swift */,
-				CA89001F2844F12D00EA916D /* Assets.xcassets */,
+				CA8900302844F17000EA916D /* Resources */,
+				CA89002F2844F16700EA916D /* Extensions */,
+				CA89002E2844F15C00EA916D /* Models */,
+				CA89002D2844F15500EA916D /* Views */,
+				CA89002C2844F15000EA916D /* Screens */,
 				CA8900242844F12D00EA916D /* Info.plist */,
 				CA8900212844F12D00EA916D /* Preview Content */,
 			);
@@ -67,6 +95,73 @@
 				CA8900222844F12D00EA916D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CA89002C2844F15000EA916D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CA8900322844F47D00EA916D /* ReservationScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CA89002D2844F15500EA916D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA8900412844FA0A00EA916D /* HeaderButtonModifire.swift */,
+				CA89004D2845EB9C00EA916D /* HorizontalDatePicker.swift */,
+				CA8900532845F2C700EA916D /* FullSizeDateCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA89002E2844F15C00EA916D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CA89002F2844F16700EA916D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA89003A2844F8DB00EA916D /* Color+Extension.swift */,
+				CA89003B2844F8DC00EA916D /* Font+Extension.swift */,
+				CA89003C2844F8DC00EA916D /* View+Extension.swift */,
+				CA8900502845F28700EA916D /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CA8900302844F17000EA916D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA8900452844FC9B00EA916D /* Fonts */,
+				CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */,
+				CA89001D2844F12B00EA916D /* ContentView.swift */,
+				CA89001F2844F12D00EA916D /* Assets.xcassets */,
+				CA8900372844F71600EA916D /* Asset.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA8900322844F47D00EA916D /* ReservationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CA8900332844F48C00EA916D /* ReservationScreen.swift */,
+			);
+			path = ReservationScreen;
+			sourceTree = "<group>";
+		};
+		CA8900452844FC9B00EA916D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CA8900482844FCA700EA916D /* Poppins-Bold.ttf */,
+				CA8900472844FCA700EA916D /* Poppins-Regular.ttf */,
+				CA8900462844FCA700EA916D /* Poppins-SemiBold.ttf */,
+				CA89005728461C0E00EA916D /* Gradients.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +221,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8900492844FCA700EA916D /* Poppins-SemiBold.ttf in Resources */,
 				CA8900232844F12D00EA916D /* Preview Assets.xcassets in Resources */,
+				CA89004B2844FCA700EA916D /* Poppins-Bold.ttf in Resources */,
 				CA8900202844F12D00EA916D /* Assets.xcassets in Resources */,
+				CA89004A2844FCA700EA916D /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +236,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8900342844F48C00EA916D /* ReservationScreen.swift in Sources */,
+				CA89003D2844F8DC00EA916D /* Color+Extension.swift in Sources */,
+				CA8900422844FA0A00EA916D /* HeaderButtonModifire.swift in Sources */,
+				CA89003E2844F8DC00EA916D /* Font+Extension.swift in Sources */,
 				CA89001E2844F12B00EA916D /* ContentView.swift in Sources */,
+				CA8900512845F28700EA916D /* Date+Extension.swift in Sources */,
+				CA8900382844F71600EA916D /* Asset.swift in Sources */,
+				CA89003F2844F8DC00EA916D /* View+Extension.swift in Sources */,
+				CA8900542845F2C700EA916D /* FullSizeDateCard.swift in Sources */,
 				CA89001C2844F12B00EA916D /* CinemaBookingApp.swift in Sources */,
+				CA89004E2845EB9C00EA916D /* HorizontalDatePicker.swift in Sources */,
+				CA89005828461C0E00EA916D /* Gradients.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
