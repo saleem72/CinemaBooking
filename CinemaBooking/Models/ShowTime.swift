@@ -13,8 +13,18 @@ struct ShowTime: Identifiable, Equatable {
     let hour: Int
     let minutes: Int
     
+    var value: String {
+        "\(String(format: "%02d", hour)):\(String(format: "%02d", minutes))"
+    }
+    
     var label: String {
-        "\(hour):\(minutes)"
+        if hour == 12 {
+            return "12:\(String(format: "%02d", minutes)) p.m."
+        } else if hour > 12 {
+            return "\(hour - 12):\(String(format: "%02d", minutes)) p.m."
+        } else {
+            return "\(String(format: "%02d", hour)):\(String(format: "%02d", minutes)) p.m."
+        }
     }
     
     static func ==(lhs: ShowTime, rhs: ShowTime) -> Bool {

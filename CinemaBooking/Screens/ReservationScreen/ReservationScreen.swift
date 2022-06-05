@@ -6,39 +6,83 @@
 //
 
 import SwiftUI
+import Combine
+
+class ReservationViewModel: ObservableObject {
+    @Published var selectedDate = Date()
+    @Published var selectedTime: ShowTime
+    @Published var showSeatsMap: Bool = false
+    @Published var hall: Hall = .init()
+    @Published var showBottomCard: Bool = false
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        let temp = ShowTimeProvider.allShows.first == nil ? ShowTime(hour: 11, minutes: 0) : ShowTimeProvider.allShows.first!
+        
+        selectedTime = temp
+        addSubscripers()
+    }
+    
+    func addSubscripers() {
+        hall.$showBottomCard
+            .sink { [weak self] recived in
+                self?.showBottomCard = recived
+            }
+            .store(in: &cancellables)
+    }
+    
+}
 
 struct ReservationScreen: View {
-    @State private var selectedDate = Date()
+    @Environment(\.presentationMode) private var presentationMode
+    @StateObject private var viewModel: ReservationViewModel = .init()
+    
     var body: some View {
         ZStack {
-            
-            Color.theme.background
-                .edgesIgnoringSafeArea(.all)
-            
-            Image(Asset.man)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .edgesIgnoringSafeArea(.top)
-//                .frame(height: UIScreen.main.bounds.height * 0.7)
-                .frame(maxHeight: .infinity, alignment: .top)
-            
-            VStack {
-                header
-
-                Spacer()
-
-                card
-
-            }
-            .foregroundColor(Color.white.opacity(0.87))
+            backgroundLayer
+            content
         }
+        .navigationBarHidden(true)
     }
 }
 
 extension ReservationScreen {
+    
+    private var backgroundLayer: some View {
+        ZStack {
+            Color.theme.background
+                .edgesIgnoringSafeArea(.all)
+            
+            movieImage
+        }
+    }
+    
+    private var movieImage: some View {
+        Image(Asset.man)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .edgesIgnoringSafeArea(.top)
+            .frame(maxHeight: .infinity, alignment: .top)
+    }
+    
+    private var content: some View {
+        VStack {
+            header
+
+            Spacer()
+
+            card
+
+        }
+        .foregroundColor(Color.white.opacity(0.87))
+        .background(navList)
+    }
+    
     private var header: some View {
         HStack {
-            Button(action: {}, label: {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
                 Image(systemName: "arrow.backward")
                     .headerButton()
             })
@@ -59,10 +103,10 @@ extension ReservationScreen {
                 .padding(.top, 45)
             
             
-            HorizontalDatePicker(selectedDate: $selectedDate)
+            HorizontalDatePicker(selectedDay: $viewModel.selectedDate, selectedTime: $viewModel.selectedTime)
             
             GradientButton(label: "Reservation") {
-                
+                viewModel.showSeatsMap = true
             }
         }
         .background(
@@ -98,6 +142,16 @@ extension ReservationScreen {
         .padding(.horizontal, 32)
         .multilineTextAlignment(.center)
     }
+    
+    private var navList: some View {
+        VStack {
+            NavigationLink(
+                "",
+                destination: ChooseSeatScreen(viewModel: viewModel),
+                isActive: $viewModel.showSeatsMap
+            )
+        }
+    }
 }
 
 struct ReservationScreen_Previews: PreviewProvider {
@@ -107,50 +161,3 @@ struct ReservationScreen_Previews: PreviewProvider {
 }
 
 
-struct GradientButton: View {
-    
-    let label: String
-    let onTap: () -> Void
-    
-    init(label: String, onTap: @escaping () -> Void) {
-        self.label = label
-        self.onTap = onTap
-    }
-    
-    var body: some View {
-        Button(action: {
-            onTap()
-        }, label: {
-            Text(label)
-                .customFont(.headline)
-                .padding(.vertical)
-                .frame(maxWidth: .infinity)
-                .background(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color.theme.red,
-                            Color.theme.purple
-                        ]),
-                        startPoint: UnitPoint(x: 0.25, y: 0.5),
-                        endPoint: UnitPoint(x: 0.75, y: 0.5)
-                    )
-                )
-                .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .stroke(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color(hex: "FF53C0"),
-                                    Color(hex: "FF53C0").opacity(0)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing),
-                            lineWidth: 2
-                        )
-                )
-        })
-        .padding(.horizontal, 32)
-        .padding(.bottom)
-    }
-}

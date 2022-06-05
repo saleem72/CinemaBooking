@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FullSizeDateCard: View {
     var date: Date
-    @Binding var selectedDay: Date?
+    @Binding var selectedDay: Date
     
     @State private var isFull: Bool = true
     @State private var expand: CGFloat = 0

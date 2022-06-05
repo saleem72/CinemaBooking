@@ -72,7 +72,7 @@ extension SmallSizeDateCard {
     }
     
     private var timeLabel: some View {
-        Text(time.label)
+        Text(time.value)
             .customFont()
             .minimumScaleFactor(0.6)
             .foregroundColor(.white)

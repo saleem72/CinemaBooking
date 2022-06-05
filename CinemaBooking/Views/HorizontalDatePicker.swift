@@ -10,43 +10,27 @@ import SwiftUI
 
 
 struct HorizontalDatePicker: View {
-    @Binding var selectedDate: Date
+//    @Binding var selectedDate: Date
     @State private var dates: [Date] = Date().weekFromNow
     @State private var times: [ShowTime] = ShowTimeProvider.allShows
     private var spacing: CGFloat = (UIScreen.main.bounds.width - 270) / 6
-    @State private var selectedDay: Date?
-    @State private var selectedTime: ShowTime
+    @Binding private var selectedDay: Date
+    @Binding private var selectedTime: ShowTime
     
-    init(selectedDate: Binding<Date>) {
-        self._selectedDate = selectedDate
-        let temp = ShowTimeProvider.allShows.first == nil ? ShowTime(hour: 11, minutes: 0) : ShowTimeProvider.allShows.first!
-        
-        _selectedTime = State(initialValue: temp)
+    init(selectedDay: Binding<Date>, selectedTime: Binding<ShowTime>) {
+        self._selectedDay = selectedDay
+        self._selectedTime = selectedTime
     }
     
     var body: some View {
         
         VStack(spacing: 0) {
             selectDaySection
-//                .background(Color.green)
             
             selectTimeSection
                 .offset(y: -17)
-            
-//            VStack {
-//                Text("Selected date: \(selectedDate.shortDate), \(selectedDate.shortTime)")
-//            }
         }
         .frame(maxWidth: .infinity, alignment: .top)
-        .onAppear {
-            updateDate()
-        }
-        .onChange(of: selectedDay, perform: { _ in
-            updateDate()
-        })
-        .onChange(of: selectedTime.hour, perform: { _ in
-            updateDate()
-        })
     }
     
     func getOffset(for idx: Int) -> CGFloat {
@@ -58,13 +42,6 @@ struct HorizontalDatePicker: View {
             return 0
         }
     }
-    
-    func updateDate() {
-        let day = selectedDay == nil ? Date() : selectedDay!
-        
-        selectedDate = day.setTime(hour: selectedTime.hour, minutes: selectedTime.minutes, seconds: 0)
-            
-     }
 }
 
 extension HorizontalDatePicker {
@@ -109,7 +86,7 @@ extension HorizontalDatePicker {
 struct HorizontalDatePicker_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            HorizontalDatePicker(selectedDate: .constant(Date()))
+            HorizontalDatePicker(selectedDay: .constant(Date()), selectedTime: .constant(ShowTime(hour: 16, minutes: 00)))
         }
         .background(Color(.secondarySystemBackground))
     }
