@@ -6,14 +6,34 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+final class HomeViewModel: ObservableObject {
+    @Published var searchTerm: String = ""
+    
+    @Published private(set) var nowPlay: [MovieViewModel] = []
+    @Published private(set) var comingSoon: [MovieViewModel] = []
+    @Published private(set) var topMovies: [MovieViewModel] = []
+    
+    @Published private(set) var showReservation: Bool = false
+    
+    @Published var selectedMovie: MovieViewModel? = nil
+    
+    func getMovies() {
+        let response = MoviesProvider.fetchNowPlayingMovies()
+        self.nowPlay = response.playNow
+        self.comingSoon = response.comingSoon
+        self.topMovies = response.topMovies
+    }
+    
+    func startReservation(for movie: MovieViewModel) {
+        selectedMovie = movie
+    }
+}
 
 struct HomeScreen: View {
-    
-    @State private var searchTerm: String = ""
-    
-    @State private var movies: [String] = ["aquaman", "avatar", "blackPanther", "morbius", "sonic", "strange"]
-    
-    @State private var showReservation: Bool = false
+    @EnvironmentObject private var session: SessionManager
+    @StateObject private var viewModel: HomeViewModel = .init()
     
     var body: some View {
         ZStack {
@@ -30,11 +50,12 @@ extension HomeScreen {
     private var content: some View {
         VStack(spacing: 20) {
             header
-            AppTextField(searchTerm: $searchTerm)
+            AppTextField(searchTerm: $viewModel.searchTerm)
             moviesSections
         }
         .foregroundColor(Color.white.opacity(0.87))
         .background(navList)
+        .onAppear(perform: viewModel.getMovies)
     }
     
     private var header: some View {
@@ -52,17 +73,55 @@ extension HomeScreen {
                     .customFont(.headline)
                     .foregroundColor(.white)
                 
-                moviesList
+                Group{
+                    if viewModel.nowPlay.isEmpty {
+                        Text("Sorry, There is no movies for this category right now ")
+                            .customFont(.title3)
+                            .foregroundColor(Color.white.opacity(0.87))
+                            .multilineTextAlignment(.center)
+                    } else {
+                        MoviesList(movies: viewModel.nowPlay) { movie in
+                            viewModel.startReservation(for: movie)
+                        }
+                    }
+                }
+                .frame(height: 162)
                 
                 Text("Coming Soon")
                     .customFont(.headline)
                     .foregroundColor(.white)
-                moviesList
+                
+                Group{
+                    if viewModel.comingSoon.isEmpty {
+                        Text("Sorry, There is no movies for this category right now ")
+                            .customFont(.title3)
+                            .foregroundColor(Color.white.opacity(0.87))
+                            .multilineTextAlignment(.center)
+                    } else {
+                        MoviesList(movies: viewModel.comingSoon) { movie in
+                            viewModel.startReservation(for: movie)
+                        }
+                    }
+                }
+                .frame(height: 162)
                 
                 Text("Top movies")
                     .customFont(.headline)
                     .foregroundColor(.white)
-                moviesList
+                
+                Group{
+                    if viewModel.topMovies.isEmpty {
+                        Text("Sorry, There is no movies for this category right now ")
+                            .customFont(.title3)
+                            .foregroundColor(Color.white.opacity(0.87))
+                            .multilineTextAlignment(.center)
+                    } else {
+                        MoviesList(movies: viewModel.topMovies) { movie in
+                            viewModel.startReservation(for: movie)
+                        }
+                    }
+                }
+                .frame(height: 162)
                 
                 Spacer()
                     .frame(height: 90)
@@ -99,70 +158,26 @@ extension HomeScreen {
         )
     }
     
-    private var moviesList: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
-                ForEach(movies, id:\.self) { movie in
-                    Image(movie)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 100, height: 130)
-                        .cornerRadius(20)
-                        .onTapGesture {
-                            showReservation = true
-                        }
-                }
+    private var navList: some View {
+        VStack {
+            if let movie = viewModel.selectedMovie {
+                NavigationLink(
+                    "",
+                    destination: ReservationScreen(movie: movie),
+                    tag: movie,
+                    selection: $viewModel.selectedMovie)
             }
         }
     }
-    
-    private var navList: some View {
-        VStack {
-            NavigationLink(
-                "",
-                destination: ReservationScreen(),
-                isActive: $showReservation
-            )
-        }
-    }
 }
+
+
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
+            .environmentObject(SessionManager())
     }
 }
 
-struct AppTextField: View {
-    
-    @Binding var searchTerm: String
-    
-    var body: some View {
-        TextField("", text: $searchTerm)
-            .customFont(.headline)
-            .padding(.horizontal, 32)
-            .overlay(
-                Image(systemName: "magnifyingglass"), alignment: .leading
-            )
-            .overlay(
-                Image(systemName: "mic.fill"), alignment: .trailing
-            )
-            .background(placeHolder(), alignment: .leading)
-            .frame(height: 36)
-            .padding(.horizontal)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(hex: "767680").opacity(0.12))
-            )
-            .padding(.horizontal)
-    }
-    
-    @ViewBuilder
-    private func placeHolder() -> some View {
-        if searchTerm.isEmpty {
-            Text("Search")
-                .padding(.leading, 32)
-                .allowsTightening(false)
-        }
-    }
-}
+

@@ -48,6 +48,6 @@ struct FirstHallView: View {
 
 struct FirstHallView_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseSeatScreen(viewModel: ReservationViewModel.init())
+        ChooseSeatScreen(viewModel: ReservationViewModel.init(movie: .example))
     }
 }

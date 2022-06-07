@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var session: SessionManager = .init()
     var body: some View {
         MainTabScreen()
+            .environmentObject(session)
     }
 }
 

@@ -31,7 +31,7 @@ fileprivate class DateManager {
     }
     
     func mediumDate(_ date: Date) -> String {
-        formatter.dateStyle = .medium
+        formatter.dateFormat = "LLLL dd"
         
         return formatter.string(from: date)
     }

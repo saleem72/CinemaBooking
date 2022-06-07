@@ -6,36 +6,16 @@
 //
 
 import SwiftUI
-import Combine
-
-class ReservationViewModel: ObservableObject {
-    @Published var selectedDate = Date()
-    @Published var selectedTime: ShowTime
-    @Published var showSeatsMap: Bool = false
-    @Published var hall: Hall = .init()
-    @Published var showBottomCard: Bool = false
-    private var cancellables = Set<AnyCancellable>()
-    
-    init() {
-        let temp = ShowTimeProvider.allShows.first == nil ? ShowTime(hour: 11, minutes: 0) : ShowTimeProvider.allShows.first!
-        
-        selectedTime = temp
-        addSubscripers()
-    }
-    
-    func addSubscripers() {
-        hall.$showBottomCard
-            .sink { [weak self] recived in
-                self?.showBottomCard = recived
-            }
-            .store(in: &cancellables)
-    }
-    
-}
+import SDWebImageSwiftUI
 
 struct ReservationScreen: View {
+    @EnvironmentObject private var session: SessionManager
     @Environment(\.presentationMode) private var presentationMode
-    @StateObject private var viewModel: ReservationViewModel = .init()
+    @StateObject private var viewModel: ReservationViewModel
+    
+    init(movie: MovieViewModel) {
+        self._viewModel = StateObject(wrappedValue: ReservationViewModel.init(movie: movie))
+    }
     
     var body: some View {
         ZStack {
@@ -58,11 +38,22 @@ extension ReservationScreen {
     }
     
     private var movieImage: some View {
-        Image(Asset.man)
+        WebImage(url: viewModel.movie.imageHighResURL)
             .resizable()
+            .placeholder {
+                Image(Asset.man)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(maxHeight: .infinity, alignment: .top)
+            }
+            .indicator(.activity)
+            .transition(.fade(duration: 0.5))
             .aspectRatio(contentMode: .fit)
             .edgesIgnoringSafeArea(.top)
+            
             .frame(maxHeight: .infinity, alignment: .top)
+        
     }
     
     private var content: some View {
@@ -125,15 +116,16 @@ extension ReservationScreen {
     private var movieDetails: some View {
         VStack(spacing: 0) {
             VStack(spacing: 8) {
-                Text("Doctor Strange")
+                Text(viewModel.movie.title ?? "")
                     .customFont(.title3)
-                Text("in the Multiverse of Madness")
+                Text(viewModel.movie.subtitle ?? "")
                     .customFont()
             }
             
-            Text("Dr. Stephen Strange casts a forbidden spell that opens the doorway to the multiverse, including alternate versions of...")
+            Text(viewModel.movie.overview ?? "")
                 .customFont()
                 .padding(.top, 30)
+                .lineLimit(4)
             
             Text("Select date and time")
                 .customFont(.headline)
@@ -156,7 +148,8 @@ extension ReservationScreen {
 
 struct ReservationScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationScreen()
+        ReservationScreen(movie: .example)
+            .environmentObject(SessionManager())
     }
 }
 
