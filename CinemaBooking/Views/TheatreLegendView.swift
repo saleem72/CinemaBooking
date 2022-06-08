@@ -1,5 +1,5 @@
 //
-//  HallLegendView.swift
+//  TheatreLegendView.swift
 //  CinemaBooking
 //
 //  Created by Yousef on 6/2/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HallLegendView: View {
+struct TheatreLegendView: View {
     var body: some View {
         HStack(spacing: 20) {
             ForEach(SeatStatus.allCases) { status in
@@ -27,13 +27,13 @@ struct HallLegendView: View {
     }
 }
 
-struct HallLegendView_Previews: PreviewProvider {
+struct TheatreLegendView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(hex: "2C135C")
                 .edgesIgnoringSafeArea(.all)
             
-            HallLegendView()
+            TheatreLegendView()
         }
     }
 }

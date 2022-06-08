@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MobileTicketsScreen: View {
     @EnvironmentObject private var session: SessionManager
@@ -26,9 +27,18 @@ struct MobileTicketsScreen: View {
                     .padding(.bottom, 30)
                 
                 ZStack {
-                    Image(Asset.man)
+                    
+                    WebImage(url: viewModel.movie.imageHighResURL)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .placeholder {
+                            Image(Asset.man)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .edgesIgnoringSafeArea(.top)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                        }
+                        .indicator(.activity)
+                        .transition(.fade(duration: 0.5))
                         .frame(width: 250, height: 460)
                         .clipped()
                         .overlay(barcodeSection, alignment: .bottom)
@@ -95,7 +105,7 @@ extension MobileTicketsScreen {
                     Text("Row:")
                         .font(Font.gallery.semiBold(13))
                         .foregroundColor(Color(hex: "56147A"))
-                    Text(viewModel.hall.selectedSeats.first?.rowName ?? "")
+                    Text(viewModel.theatre.selectedSeats.first?.rowName ?? "")
                         .font(Font.gallery.regular(13))
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
@@ -104,7 +114,7 @@ extension MobileTicketsScreen {
                     Text("Seats:")
                         .font(Font.gallery.semiBold(13))
                         .foregroundColor(Color(hex: "56147A"))
-                    Text(viewModel.hall.selectedSeatsNumbers)
+                    Text(viewModel.theatre.selectedSeatsNumbers)
                         .font(Font.gallery.regular(13))
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
@@ -143,7 +153,7 @@ extension MobileTicketsScreen {
     private var header: some View {
         HStack {
             Button(action: {
-                presentationMode.wrappedValue.dismiss()
+                session.goBackHome()
             }, label: {
                 Image(systemName: "arrow.backward")
                     .headerButton()

@@ -86,7 +86,7 @@ extension HorizontalDatePicker {
 struct HorizontalDatePicker_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            HorizontalDatePicker(selectedDay: .constant(Date()), selectedTime: .constant(ShowTime(hour: 16, minutes: 00)))
+            HorizontalDatePicker(selectedDay: .constant(Date()), selectedTime: .constant(ShowTime(id: 1, hour: 16, minutes: 00)))
         }
         .background(Color(.secondarySystemBackground))
     }

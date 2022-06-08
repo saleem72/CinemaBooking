@@ -97,7 +97,7 @@ extension ReservationScreen {
             HorizontalDatePicker(selectedDay: $viewModel.selectedDate, selectedTime: $viewModel.selectedTime)
             
             GradientButton(label: "Reservation") {
-                viewModel.showSeatsMap = true
+                session.showSeatsMap = true
             }
         }
         .background(
@@ -140,7 +140,7 @@ extension ReservationScreen {
             NavigationLink(
                 "",
                 destination: ChooseSeatScreen(viewModel: viewModel),
-                isActive: $viewModel.showSeatsMap
+                isActive: $session.showSeatsMap
             )
         }
     }

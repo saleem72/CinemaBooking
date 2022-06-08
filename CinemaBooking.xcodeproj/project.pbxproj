@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		CA44B402284795B5005F662E /* ChooseSeatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B401284795B5005F662E /* ChooseSeatScreen.swift */; };
 		CA44B40628479679005F662E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B40528479679005F662E /* GradientButton.swift */; };
-		CA44B40B2848B401005F662E /* HallSeatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B40A2848B401005F662E /* HallSeatsProvider.swift */; };
-		CA44B40F2848B457005F662E /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B40E2848B457005F662E /* Hall.swift */; };
-		CA44B4122848B498005F662E /* HallContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4112848B498005F662E /* HallContent.swift */; };
+		CA44B40B2848B401005F662E /* TheatreSeatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B40A2848B401005F662E /* TheatreSeatsProvider.swift */; };
+		CA44B40F2848B457005F662E /* Theatre.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B40E2848B457005F662E /* Theatre.swift */; };
+		CA44B4122848B498005F662E /* TheatreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4112848B498005F662E /* TheatreContent.swift */; };
 		CA44B4162848B5D3005F662E /* StageShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4152848B5D3005F662E /* StageShape.swift */; };
 		CA44B41A2848B886005F662E /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4192848B886005F662E /* ScreenView.swift */; };
-		CA44B41D2848BB61005F662E /* HallLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B41C2848BB61005F662E /* HallLegendView.swift */; };
-		CA44B4202848BBB5005F662E /* HallSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B41F2848BBB5005F662E /* HallSectionView.swift */; };
+		CA44B41D2848BB61005F662E /* TheatreLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B41C2848BB61005F662E /* TheatreLegendView.swift */; };
+		CA44B4202848BBB5005F662E /* TheatreSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B41F2848BBB5005F662E /* TheatreSectionView.swift */; };
 		CA44B4232848BBF2005F662E /* SeatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4222848BBF2005F662E /* SeatCardView.swift */; };
-		CA44B4262848BC66005F662E /* FirstHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4252848BC66005F662E /* FirstHallView.swift */; };
+		CA44B4262848BC66005F662E /* FirstTheatreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4252848BC66005F662E /* FirstTheatreView.swift */; };
 		CA44B4292848C470005F662E /* BuyTicketShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B4282848C470005F662E /* BuyTicketShape.swift */; };
 		CA44B42D2848E564005F662E /* MainTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B42C2848E564005F662E /* MainTabScreen.swift */; };
 		CA44B4302848EC7D005F662E /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44B42F2848EC7D005F662E /* AppTabView.swift */; };
@@ -34,6 +34,10 @@
 		CA456437284F55BD00CB1453 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA456436284F55BD00CB1453 /* LineShape.swift */; };
 		CA45643A284F568700CB1453 /* MoviesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA456439284F568700CB1453 /* MoviesList.swift */; };
 		CA45643D284F56B900CB1453 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45643C284F56B900CB1453 /* AppTextField.swift */; };
+		CA456441284F59A500CB1453 /* TicketsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA456440284F59A500CB1453 /* TicketsListScreen.swift */; };
+		CA456445284F60EC00CB1453 /* Tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = CA456444284F60EC00CB1453 /* Tickets.json */; };
+		CA45644828509A3D00CB1453 /* TicketCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45644728509A3D00CB1453 /* TicketCard.swift */; };
+		CA4564512850B26600CB1453 /* Theatre.json in Resources */ = {isa = PBXBuildFile; fileRef = CA4564502850B26600CB1453 /* Theatre.json */; };
 		CA89001C2844F12B00EA916D /* CinemaBookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */; };
 		CA89001E2844F12B00EA916D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA89001D2844F12B00EA916D /* ContentView.swift */; };
 		CA8900202844F12D00EA916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA89001F2844F12D00EA916D /* Assets.xcassets */; };
@@ -66,15 +70,15 @@
 /* Begin PBXFileReference section */
 		CA44B401284795B5005F662E /* ChooseSeatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSeatScreen.swift; sourceTree = "<group>"; };
 		CA44B40528479679005F662E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
-		CA44B40A2848B401005F662E /* HallSeatsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallSeatsProvider.swift; sourceTree = "<group>"; };
-		CA44B40E2848B457005F662E /* Hall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall.swift; sourceTree = "<group>"; };
-		CA44B4112848B498005F662E /* HallContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallContent.swift; sourceTree = "<group>"; };
+		CA44B40A2848B401005F662E /* TheatreSeatsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreSeatsProvider.swift; sourceTree = "<group>"; };
+		CA44B40E2848B457005F662E /* Theatre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theatre.swift; sourceTree = "<group>"; };
+		CA44B4112848B498005F662E /* TheatreContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreContent.swift; sourceTree = "<group>"; };
 		CA44B4152848B5D3005F662E /* StageShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageShape.swift; sourceTree = "<group>"; };
 		CA44B4192848B886005F662E /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
-		CA44B41C2848BB61005F662E /* HallLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallLegendView.swift; sourceTree = "<group>"; };
-		CA44B41F2848BBB5005F662E /* HallSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallSectionView.swift; sourceTree = "<group>"; };
+		CA44B41C2848BB61005F662E /* TheatreLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreLegendView.swift; sourceTree = "<group>"; };
+		CA44B41F2848BBB5005F662E /* TheatreSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatreSectionView.swift; sourceTree = "<group>"; };
 		CA44B4222848BBF2005F662E /* SeatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatCardView.swift; sourceTree = "<group>"; };
-		CA44B4252848BC66005F662E /* FirstHallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstHallView.swift; sourceTree = "<group>"; };
+		CA44B4252848BC66005F662E /* FirstTheatreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTheatreView.swift; sourceTree = "<group>"; };
 		CA44B4282848C470005F662E /* BuyTicketShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketShape.swift; sourceTree = "<group>"; };
 		CA44B42C2848E564005F662E /* MainTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabScreen.swift; sourceTree = "<group>"; };
 		CA44B42F2848EC7D005F662E /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,10 @@
 		CA456436284F55BD00CB1453 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		CA456439284F568700CB1453 /* MoviesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesList.swift; sourceTree = "<group>"; };
 		CA45643C284F56B900CB1453 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		CA456440284F59A500CB1453 /* TicketsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsListScreen.swift; sourceTree = "<group>"; };
+		CA456444284F60EC00CB1453 /* Tickets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Tickets.json; sourceTree = "<group>"; };
+		CA45644728509A3D00CB1453 /* TicketCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCard.swift; sourceTree = "<group>"; };
+		CA4564502850B26600CB1453 /* Theatre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Theatre.json; sourceTree = "<group>"; };
 		CA8900182844F12B00EA916D /* CinemaBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA89001B2844F12B00EA916D /* CinemaBookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaBookingApp.swift; sourceTree = "<group>"; };
 		CA89001D2844F12B00EA916D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,7 +152,7 @@
 		CA44B4082848B393005F662E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CA44B40A2848B401005F662E /* HallSeatsProvider.swift */,
+				CA44B40A2848B401005F662E /* TheatreSeatsProvider.swift */,
 				CA4563F5284DEB4100CB1453 /* ReservationViewModel.swift */,
 				CA456402284E165900CB1453 /* MoviesProvider.swift */,
 				CA4563F9284DF3D000CB1453 /* BarcodeGenerator.swift */,
@@ -162,6 +170,14 @@
 				CA456436284F55BD00CB1453 /* LineShape.swift */,
 			);
 			path = Shapes;
+			sourceTree = "<group>";
+		};
+		CA45643F284F599300CB1453 /* TicketsListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CA456440284F59A500CB1453 /* TicketsListScreen.swift */,
+			);
+			path = TicketsListScreen;
 			sourceTree = "<group>";
 		};
 		CA89000F2844F12B00EA916D = {
@@ -207,6 +223,7 @@
 		CA89002C2844F15000EA916D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CA45643F284F599300CB1453 /* TicketsListScreen */,
 				CA99DF5B284CB9900030CF9E /* Home */,
 				CA8900322844F47D00EA916D /* ReservationScreen */,
 				CA44B400284795A0005F662E /* ChooseSeatScreen */,
@@ -225,10 +242,10 @@
 				CA89005B28476C3200EA916D /* SmallSizeDateCard.swift */,
 				CA44B40528479679005F662E /* GradientButton.swift */,
 				CA44B4192848B886005F662E /* ScreenView.swift */,
-				CA44B41C2848BB61005F662E /* HallLegendView.swift */,
-				CA44B41F2848BBB5005F662E /* HallSectionView.swift */,
+				CA44B41C2848BB61005F662E /* TheatreLegendView.swift */,
+				CA44B41F2848BBB5005F662E /* TheatreSectionView.swift */,
 				CA44B4222848BBF2005F662E /* SeatCardView.swift */,
-				CA44B4252848BC66005F662E /* FirstHallView.swift */,
+				CA44B4252848BC66005F662E /* FirstTheatreView.swift */,
 				CA44B42F2848EC7D005F662E /* AppTabView.swift */,
 				CA99DF49284C867D0030CF9E /* EllipseShape.swift */,
 				CA99DF4E284C873B0030CF9E /* BlurView.swift */,
@@ -237,6 +254,7 @@
 				CA4563FC284DF5BF00CB1453 /* TestBarCodeGeneratorScreen.swift */,
 				CA456439284F568700CB1453 /* MoviesList.swift */,
 				CA45643C284F56B900CB1453 /* AppTextField.swift */,
+				CA45644728509A3D00CB1453 /* TicketCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				CA89005E284775AE00EA916D /* ShowTime.swift */,
-				CA44B40E2848B457005F662E /* Hall.swift */,
-				CA44B4112848B498005F662E /* HallContent.swift */,
+				CA44B40E2848B457005F662E /* Theatre.swift */,
+				CA44B4112848B498005F662E /* TheatreContent.swift */,
 				CA456427284E1E8F00CB1453 /* GetMoviesResponse.swift */,
 				CA99DF57284CB92E0030CF9E /* TabViewItem.swift */,
 				CA4563FF284E0DED00CB1453 /* Movie.swift */,
@@ -276,6 +294,8 @@
 				CA89005728461C0E00EA916D /* Gradients.swift */,
 				CA8900372844F71600EA916D /* Asset.swift */,
 				CA456421284E1BCD00CB1453 /* Movies.json */,
+				CA456444284F60EC00CB1453 /* Tickets.json */,
+				CA4564502850B26600CB1453 /* Theatre.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -378,7 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8900492844FCA700EA916D /* Poppins-SemiBold.ttf in Resources */,
+				CA4564512850B26600CB1453 /* Theatre.json in Resources */,
 				CA8900232844F12D00EA916D /* Preview Assets.xcassets in Resources */,
+				CA456445284F60EC00CB1453 /* Tickets.json in Resources */,
 				CA89004B2844FCA700EA916D /* Poppins-Bold.ttf in Resources */,
 				CA8900202844F12D00EA916D /* Assets.xcassets in Resources */,
 				CA456422284E1BCD00CB1453 /* Movies.json in Resources */,
@@ -398,7 +420,7 @@
 				CA8900342844F48C00EA916D /* ReservationScreen.swift in Sources */,
 				CA89003D2844F8DC00EA916D /* Color+Extension.swift in Sources */,
 				CA8900422844FA0A00EA916D /* HeaderButtonModifire.swift in Sources */,
-				CA44B4202848BBB5005F662E /* HallSectionView.swift in Sources */,
+				CA44B4202848BBB5005F662E /* TheatreSectionView.swift in Sources */,
 				CA45643D284F56B900CB1453 /* AppTextField.swift in Sources */,
 				CA89003E2844F8DC00EA916D /* Font+Extension.swift in Sources */,
 				CA89001E2844F12B00EA916D /* ContentView.swift in Sources */,
@@ -407,15 +429,17 @@
 				CA456433284F550900CB1453 /* SessionManager.swift in Sources */,
 				CA44B4292848C470005F662E /* BuyTicketShape.swift in Sources */,
 				CA8900382844F71600EA916D /* Asset.swift in Sources */,
-				CA44B4122848B498005F662E /* HallContent.swift in Sources */,
+				CA44B4122848B498005F662E /* TheatreContent.swift in Sources */,
 				CA44B402284795B5005F662E /* ChooseSeatScreen.swift in Sources */,
 				CA89003F2844F8DC00EA916D /* View+Extension.swift in Sources */,
 				CA99DF6B284CE1F30030CF9E /* TicketShape.swift in Sources */,
 				CA456400284E0DED00CB1453 /* Movie.swift in Sources */,
 				CA99DF58284CB92E0030CF9E /* TabViewItem.swift in Sources */,
-				CA44B40B2848B401005F662E /* HallSeatsProvider.swift in Sources */,
+				CA45644828509A3D00CB1453 /* TicketCard.swift in Sources */,
+				CA44B40B2848B401005F662E /* TheatreSeatsProvider.swift in Sources */,
+				CA456441284F59A500CB1453 /* TicketsListScreen.swift in Sources */,
 				CA99DF62284CDD280030CF9E /* MobileTicketsScreen.swift in Sources */,
-				CA44B41D2848BB61005F662E /* HallLegendView.swift in Sources */,
+				CA44B41D2848BB61005F662E /* TheatreLegendView.swift in Sources */,
 				CA44B40628479679005F662E /* GradientButton.swift in Sources */,
 				CA44B4162848B5D3005F662E /* StageShape.swift in Sources */,
 				CA4563FA284DF3D000CB1453 /* BarcodeGenerator.swift in Sources */,
@@ -423,7 +447,7 @@
 				CA99DF4F284C873B0030CF9E /* BlurView.swift in Sources */,
 				CA8900542845F2C700EA916D /* FullSizeDateCard.swift in Sources */,
 				CA44B4302848EC7D005F662E /* AppTabView.swift in Sources */,
-				CA44B4262848BC66005F662E /* FirstHallView.swift in Sources */,
+				CA44B4262848BC66005F662E /* FirstTheatreView.swift in Sources */,
 				CA89001C2844F12B00EA916D /* CinemaBookingApp.swift in Sources */,
 				CA456437284F55BD00CB1453 /* LineShape.swift in Sources */,
 				CA89004E2845EB9C00EA916D /* HorizontalDatePicker.swift in Sources */,
@@ -431,7 +455,7 @@
 				CA99DF54284CB8870030CF9E /* TabViewButton.swift in Sources */,
 				CA4563F6284DEB4100CB1453 /* ReservationViewModel.swift in Sources */,
 				CA45643A284F568700CB1453 /* MoviesList.swift in Sources */,
-				CA44B40F2848B457005F662E /* Hall.swift in Sources */,
+				CA44B40F2848B457005F662E /* Theatre.swift in Sources */,
 				CA99DF5D284CB99D0030CF9E /* HomeScreen.swift in Sources */,
 				CA89005828461C0E00EA916D /* Gradients.swift in Sources */,
 				CA99DF4A284C867D0030CF9E /* EllipseShape.swift in Sources */,

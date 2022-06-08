@@ -22,6 +22,13 @@ extension Bundle {
 //        print(serialized)
         
         let decoder = JSONDecoder()
+        let dateFormatter = Date.dateFormatter()
+        
+        // "2022-03-16"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
         guard let result = try? decoder.decode(T.self, from: data) else {
             return .failure(BundleDecodingError.failToDecode)

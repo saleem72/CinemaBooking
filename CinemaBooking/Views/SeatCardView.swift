@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SeatCardView: View {
     let seat: Seat
-    var onSelection: (Hall.Operation) -> Void
+    var onSelection: (Theatre.Operation) -> Void
     
-    init(seat: Seat, onSelection: @escaping (Hall.Operation) -> Void) {
+    init(seat: Seat, onSelection: @escaping (Theatre.Operation) -> Void) {
         self.seat = seat
         self.onSelection = onSelection
     }

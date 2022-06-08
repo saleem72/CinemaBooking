@@ -48,9 +48,9 @@ enum BarcodeGenerator {
                     width: rect.width * (48 / rect.height),
                     height: 48
                 )
-                print(#function)
-                print("rect: \(rect)")
-                print("newRect: \(newRect)")
+//                print(#function)
+//                print("rect: \(rect)")
+//                print("newRect: \(newRect)")
                 if let cgImage = context.createCGImage(outputImage, from: newRect) {
                     return UIImage(cgImage: cgImage)
                 }

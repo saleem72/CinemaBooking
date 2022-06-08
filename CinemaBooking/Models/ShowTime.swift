@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ShowTime: Identifiable, Equatable {
+struct ShowTime: Identifiable, Equatable, Codable {
     
-    let id = UUID()
+    let id: Int
     let hour: Int
     let minutes: Int
     
@@ -30,6 +30,10 @@ struct ShowTime: Identifiable, Equatable {
     static func ==(lhs: ShowTime, rhs: ShowTime) -> Bool {
         lhs.hour == rhs.hour && lhs.minutes == rhs.minutes
     }
+    
+    static let example: ShowTime = .init(
+        id: 1, hour: 16, minutes: 0
+    )
 }
 
 enum ShowTimeProvider {
@@ -41,10 +45,10 @@ enum ShowTimeProvider {
          case twenty = "20:00"
      */
     static var allShows: [ShowTime] = [
-        .init(hour: 16, minutes: 0),
-        .init(hour: 17, minutes: 0),
-        .init(hour: 18, minutes: 0),
-        .init(hour: 19, minutes: 0),
-        .init(hour: 20, minutes: 0)
+        .init(id: 1, hour: 16, minutes: 0),
+        .init(id: 2, hour: 17, minutes: 0),
+        .init(id: 3, hour: 18, minutes: 0),
+        .init(id: 4, hour: 19, minutes: 0),
+        .init(id: 5, hour: 20, minutes: 0)
     ]
 }

@@ -1,5 +1,5 @@
 //
-//  HallContent.swift
+//  TheatreContent.swift
 //  CinemaBooking
 //
 //  Created by Yousef on 6/2/22.
@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct HallSection: Identifiable {
+struct TheatreSection: Identifiable, Codable {
     let id: Int
     let name: String
     let seatPrice: Double
-    var rows: [HallRow]
+    var rows: [TheatreRow]
     
 }
 
-struct HallRow: Identifiable {
+struct TheatreRow: Identifiable, Codable {
     let id: Int
     let name: String
     let sectionId: Int
     var seats: [Seat]
 }
 
-enum SeatStatus: String, Identifiable, CaseIterable {
+enum SeatStatus: String, Identifiable, CaseIterable, Codable {
     case available
     case reserved
     case selected
@@ -38,7 +38,7 @@ enum SeatStatus: String, Identifiable, CaseIterable {
     }
 }
 
-struct Seat: Identifiable {
+struct Seat: Identifiable, Codable {
     let number: Int
     let sectionId: Int
     let sectionName: String
@@ -57,5 +57,10 @@ struct Seat: Identifiable {
     func reserve() -> Seat {
         Seat(number: number, sectionId: sectionId, sectionName: sectionName, rowId: rowId, rowName: rowName, status: .reserved)
     }
+    
+    static let dummyData: [Seat] = [
+        .init(number: 1, sectionId: 1, sectionName: "VIP", rowId: 1, rowName: "A", status: .available),
+        .init(number: 2, sectionId: 1, sectionName: "VIP", rowId: 1, rowName: "A", status: .available)
+    ]
     
 }

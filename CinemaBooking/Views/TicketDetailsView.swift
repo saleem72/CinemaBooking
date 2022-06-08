@@ -63,13 +63,13 @@ extension TicketDetailsView {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20, height: 16)
             
-            Text(viewModel.hall.selectedSeats.first?.sectionName ?? "") // "VIP Section"
+            Text(viewModel.theatre.selectedSeats.first?.sectionName ?? "") // "VIP Section"
             
             Circle()
                 .fill(Color.white)
                 .frame(width: 6, height: 6)
             
-            Text(viewModel.hall.selectedSeatsNumbers) // "Seat 9 ,10"
+            Text(viewModel.theatre.selectedSeatsNumbers) // "Seat 9 ,10"
         }
     }
     
@@ -78,7 +78,7 @@ extension TicketDetailsView {
             Image(Asset.cart)
                 .renderingMode(.template)
             
-            Text(viewModel.hall.totalPrice) // "Total: $30"
+            Text(viewModel.theatre.totalPrice) // "Total: $30"
         }
     }
     

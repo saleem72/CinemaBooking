@@ -22,7 +22,7 @@ struct MainTabScreen: View {
                     switch selectedTab {
                     case .home: HomeScreen()
                     case .loaction: Text("location")
-                    case .ticket: Text("Ticket")
+                    case .ticket: TicketsListScreen()
                     case .category: Text("Category")
                     case .profile: Text("Profile")
                     }
@@ -57,6 +57,7 @@ extension MainTabScreen {
 struct MainTabScreen_Previews: PreviewProvider {
     static var previews: some View {
         MainTabScreen()
+            .environmentObject(SessionManager())
     }
 }
 

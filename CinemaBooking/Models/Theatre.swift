@@ -1,5 +1,5 @@
 //
-//  Hall.swift
+//  Theatre.swift
 //  CinemaBooking
 //
 //  Created by Yousef on 6/2/22.
@@ -9,14 +9,14 @@ import SwiftUI
 
 
 
-class Hall: ObservableObject {
+class Theatre: ObservableObject {
     
     enum Operation {
         case select
         case deSelect
     }
     
-    @Published private(set) var sections: [HallSection] = []
+    @Published private(set) var sections: [TheatreSection] = []
     @Published private(set) var selectedSeats: [Seat] = []
     @Published private(set) var showBottomCard: Bool = false
     
@@ -38,8 +38,10 @@ class Hall: ObservableObject {
         return String(format: "Total: $%.2f", temp)
     }
     
+    private var provider: TheatreSeatsProvider = .init()
+    
     func getData() {
-        sections = HallSeatsProvider.dummyData()
+        sections = provider.getTheatre()
     }
     
     private func checkForBottomCard() {

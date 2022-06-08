@@ -25,7 +25,7 @@ struct ChooseSeatScreen: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            viewModel.hall.getData()
+            viewModel.theatre.getData()
         }
     }
 }
@@ -48,7 +48,7 @@ extension ChooseSeatScreen {
                 .padding(.top, 53)
                 .padding(.bottom, 60)
             
-            FirstHallView(hall: viewModel.hall)
+            FirstTheatreView(theatre: viewModel.theatre)
             
             Spacer(minLength: 0)
         }
@@ -84,7 +84,7 @@ extension ChooseSeatScreen {
             
             Spacer()
             TicketDetailsView(viewModel: viewModel) {
-                viewModel.buy()
+                session.showBoughtTicket = true
             }
             
         }
@@ -102,7 +102,7 @@ extension ChooseSeatScreen {
             NavigationLink(
                 "",
                 destination: MobileTicketsScreen(viewModel: viewModel),
-                isActive: $viewModel.showBoughtTicket
+                isActive: $session.showBoughtTicket
             )
         }
     }

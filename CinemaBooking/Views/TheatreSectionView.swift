@@ -1,5 +1,5 @@
 //
-//  HallSectionView.swift
+//  TheatreSectionView.swift
 //  CinemaBooking
 //
 //  Created by Yousef on 6/2/22.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HallSectionView: View {
-    let section: HallSection
-    var onSelection: (Seat, Hall.Operation) -> Void
+struct TheatreSectionView: View {
+    let section: TheatreSection
+    var onSelection: (Seat, Theatre.Operation) -> Void
     
     var body: some View {
         VStack(spacing: 20) {
@@ -27,7 +27,7 @@ struct HallSectionView: View {
     }
 }
 
-struct HallSectionView_Previews: PreviewProvider {
+struct TheatreSectionView_Previews: PreviewProvider {
     static var previews: some View {
         ChooseSeatScreen(viewModel: ReservationViewModel.init(movie: .example))
     }

@@ -29,8 +29,8 @@ extension TabViewButton {
             if selectedTab == item {
                 ZStack {
                     ZStack {
-                        Circle()
-                            .fill(Color(hex: "3B1578"))
+//                        Circle()
+//                            .fill(Color(hex: "3B1578"))
                         
                         BlurView(style: .systemUltraThinMaterialLight)
                         

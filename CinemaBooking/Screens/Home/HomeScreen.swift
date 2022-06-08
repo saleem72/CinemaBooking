@@ -17,7 +17,7 @@ final class HomeViewModel: ObservableObject {
     
     @Published private(set) var showReservation: Bool = false
     
-    @Published var selectedMovie: MovieViewModel? = nil
+    
     
     func getMovies() {
         let response = MoviesProvider.fetchNowPlayingMovies()
@@ -26,9 +26,7 @@ final class HomeViewModel: ObservableObject {
         self.topMovies = response.topMovies
     }
     
-    func startReservation(for movie: MovieViewModel) {
-        selectedMovie = movie
-    }
+    
 }
 
 struct HomeScreen: View {
@@ -81,7 +79,7 @@ extension HomeScreen {
                             .multilineTextAlignment(.center)
                     } else {
                         MoviesList(movies: viewModel.nowPlay) { movie in
-                            viewModel.startReservation(for: movie)
+                            session.selectedMovie = movie
                         }
                     }
                 }
@@ -99,7 +97,7 @@ extension HomeScreen {
                             .multilineTextAlignment(.center)
                     } else {
                         MoviesList(movies: viewModel.comingSoon) { movie in
-                            viewModel.startReservation(for: movie)
+                            session.selectedMovie = movie
                         }
                     }
                 }
@@ -117,7 +115,7 @@ extension HomeScreen {
                             .multilineTextAlignment(.center)
                     } else {
                         MoviesList(movies: viewModel.topMovies) { movie in
-                            viewModel.startReservation(for: movie)
+                            session.selectedMovie = movie
                         }
                     }
                 }
@@ -160,12 +158,12 @@ extension HomeScreen {
     
     private var navList: some View {
         VStack {
-            if let movie = viewModel.selectedMovie {
+            if let movie = session.selectedMovie {
                 NavigationLink(
                     "",
                     destination: ReservationScreen(movie: movie),
                     tag: movie,
-                    selection: $viewModel.selectedMovie)
+                    selection: $session.selectedMovie)
             }
         }
     }
