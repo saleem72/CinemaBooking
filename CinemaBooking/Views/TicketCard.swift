@@ -118,44 +118,54 @@ extension TicketCard {
                 .frame(height: 1)
             
             VStack {
-                HStack(spacing: 8) {
-                    Text("Date:")
-                        .font(Font.gallery.semiBold(13))
-                        .foregroundColor(Color(hex: "56147A"))
-                    Text(ticket.selectedDate.mediumDate)
-                        .font(Font.gallery.regular(13))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.4)
+                HStack(spacing: 7) {
+                    HStack(spacing: 7) {
+                        Text("Date:")
+                            .font(.body)
+//                            .customFont()
+                            .foregroundColor(Color(hex: "56147A"))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Text(ticket.selectedDate.mediumDate)
+//                            .customFont(.footnote)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.4)
+                    }
                     
                     Spacer(minLength: 0)
-                    Text("Time:")
-                        .font(Font.gallery.semiBold(13))
-                        .foregroundColor(Color(hex: "56147A"))
-                    Text(ticket.selectedTime.label)
-                        .font(Font.gallery.regular(13))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.4)
+                    HStack(spacing: 7) {
+                        Text("Time:")
+                            .font(.body)
+//                            .customFont()
+                            .foregroundColor(Color(hex: "56147A"))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Text(ticket.selectedTime.label)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.4)
+                    }
                 }
-                .lineLimit(1)
-                .minimumScaleFactor(0.6)
+                .font(.footnote)
                 
                 HStack(spacing: 8) {
                     Text("Row:")
-                        .font(Font.gallery.semiBold(13))
                         .foregroundColor(Color(hex: "56147A"))
-                    Text(ticket.selectedSeats.first?.rowName ?? "")
-                        .font(Font.gallery.regular(13))
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
+                    Text(ticket.selectedSeats.first?.rowName ?? "")
+                        .customFont(.footnote)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.4)
                     
                     Spacer(minLength: 0)
                     Text("Seats:")
-                        .font(Font.gallery.semiBold(13))
                         .foregroundColor(Color(hex: "56147A"))
-                    Text(ticket.selectedSeatsNumbers)
-                        .font(Font.gallery.regular(13))
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
+                    Text(ticket.selectedSeatsNumbers)
+                        .customFont(.footnote)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.4)
                 }
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)

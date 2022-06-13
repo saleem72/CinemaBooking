@@ -98,7 +98,7 @@ struct FontsBook {
 //    }
     
     func dynamic(_ type: FontType) -> Font {
-        return Font.custom(type.fontName, size: type.size, relativeTo: type.textStyle)
+        return Font.custom(type.fontName, size: type.size, relativeTo: type.textStyle) // 
     }
     
     var largeTitle: Font {

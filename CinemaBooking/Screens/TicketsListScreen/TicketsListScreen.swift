@@ -44,7 +44,7 @@ final class TicketsProvider {
 
 final class TicketsListViewModel: ObservableObject {
     @Published private(set) var tickets: [Ticket] = []
-    
+    @Published private(set) var selectedIndex: Int = 0
 //    @Published private(set) var presentedTickets: [Ticket]  = []
     
     var presentedTickets: [Ticket] {
@@ -79,10 +79,13 @@ final class TicketsListViewModel: ObservableObject {
     
     func shiftTickets() {
         guard let first = tickets.first else { return }
-//        objectWillChange.send()
+        
         tickets = Array(tickets.dropFirst())
         tickets.append(first)
-        
+        selectedIndex += 1
+        if selectedIndex > tickets.count - 1 {
+            selectedIndex = 0
+        }
 //        print("tickets: \((tickets.compactMap({$0.movie.title})).joined(separator: ", "))")
 //        print("presentedTickets: \((presentedTickets.compactMap({$0.movie.title})).joined(separator: ", "))")
     }
@@ -118,8 +121,8 @@ struct TicketsListScreen: View {
                         HStack {
                             ForEach(0..<viewModel.tickets.count, id:\.self) { idx in
                                 Circle()
-                                    .fill(Color.white.opacity(0.2))
-                                    .frame(width: 6, height: 6)
+                                    .fill(viewModel.selectedIndex == idx ? Color(hex: "7C62D6") : Color.white.opacity(0.2))
+                                    .frame(width: viewModel.selectedIndex == idx ? 8: 6, height: viewModel.selectedIndex == idx ? 8: 6)
                             }
                         }
                     }
@@ -142,7 +145,7 @@ extension TicketsListScreen {
             .customFont()
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
-            .padding(.horizontal, 72)
+            .padding(.horizontal, 64)
     }
     
     private var header: some View {

@@ -12,6 +12,18 @@ struct ContentView: View {
     var body: some View {
         MainTabScreen()
             .environmentObject(session)
+            .onAppear(perform: getFonts)
+    }
+    
+    func getFonts() {
+        let families = UIFont.familyNames
+        for family in families {
+            let fonts = UIFont.fontNames(forFamilyName: family)
+            for font in fonts {
+                print(font)
+            }
+            print("----------------------------------------------")
+        }
     }
 }
 
